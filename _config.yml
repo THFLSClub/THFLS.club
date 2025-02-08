@@ -3,13 +3,22 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
+title: 天外计算机社
+subtitle: '一个有温度的 Geek Paradise'
+description: '广州市天河外国语学校计算机社团'
+keywords: THFLS, Middle School, CS
+author: HydroGest
+language: zh-cn
 timezone: ''
+
+archive_generator:
+  per_page: 0  
+  yearly: false
+  monthly: false
+  daily: false
+
+
+theme: anatole
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
