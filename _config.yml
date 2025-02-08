@@ -108,3 +108,6 @@ theme: anatole
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+github: THFLSClub
+telegram: GZTHFLS
