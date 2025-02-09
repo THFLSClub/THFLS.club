@@ -5,11 +5,14 @@
 # Site
 title: 天外计算机社
 subtitle: '一个有温度的 Geek Paradise'
+avatar: https://www.helloimg.com/i/2025/02/09/67a8497e3b221.jpg
 description: '广州市天河外国语学校计算机社团'
 keywords: THFLS, Middle School, CS
-author: HydroGest
-language: zh-cn
+favicon: https://www.helloimg.com/i/2025/02/09/67a8497e3b221.jpg
+language: zh-CN
 timezone: ''
+
+author: THFLS Computer Club
 
 archive_generator:
   per_page: 0  
@@ -19,7 +22,7 @@ archive_generator:
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://thfls.club
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
