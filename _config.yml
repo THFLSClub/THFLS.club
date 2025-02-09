@@ -11,6 +11,12 @@ favicon: https://www.helloimg.com/i/2025/02/09/67a8497e3b221.jpg
 language: zh-CN
 timezone: ''
 
+menu:
+  home: /
+  archives: /archives
+  tags: /tags
+  about: /about
+
 author:
   on: true
   authors:
