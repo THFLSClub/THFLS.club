@@ -5,41 +5,14 @@
 # Site
 title: 天外计算机社
 subtitle: '一个有温度的 Geek Paradise'
+avatar: https://www.helloimg.com/i/2025/02/09/67a8497e3b221.jpg
 description: '广州市天河外国语学校计算机社团'
 keywords: THFLS, Middle School, CS
 favicon: https://www.helloimg.com/i/2025/02/09/67a8497e3b221.jpg
 language: zh-CN
 timezone: ''
 
-menubar:
-  columns: 4
-  items:
-    - id: home
-      theme: ''
-      title: 主页
-      icon: ''
-      url: /
-    - id: archives
-      theme: ''
-      title: 归档
-      icon: ''
-      url: /archives
-    - id: tags
-      theme: ''
-      title: 标签
-      icon: ''
-      url: /tags
-    - id: about
-      theme: ''
-      title: 关于
-      icon: ''
-      url: /about
-
-author:
-  on: true
-  authors:
-    author1: HydroGest
-    author2: Pan Jingxi
+author: THFLS Computer Club
 
 archive_generator:
   per_page: 0  
