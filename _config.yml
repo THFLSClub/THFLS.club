@@ -12,6 +12,15 @@ favicon: https://www.helloimg.com/i/2025/02/09/67a8497e3b221.jpg
 language: zh-CN
 timezone: ''
 
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit:
+  content_limit_delim: ' '
+
 author: THFLS Computer Club
 
 archive_generator:
