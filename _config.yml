@@ -12,7 +12,7 @@ language: zh-CN
 timezone: ''
 
 author:
-  on: true #true：开启多作者模式
+  on: true
   authors:
     author1: HydroGest
     author2: Pan Jingxi
@@ -22,6 +22,16 @@ archive_generator:
   yearly: false
   monthly: false
   daily: false
+
+menubar:
+  columns: 4
+  items: 
+    ...
+    - id: more
+      theme: ''
+      title: 更多
+      icon: ''
+      url: /more/
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
