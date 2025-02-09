@@ -11,11 +11,29 @@ favicon: https://www.helloimg.com/i/2025/02/09/67a8497e3b221.jpg
 language: zh-CN
 timezone: ''
 
-menu:
-  home: /
-  archives: /archives
-  tags: /tags
-  about: /about
+menubar:
+  columns: 4
+  items:
+    - id: home
+      theme: ''
+      title: 主页
+      icon: ''
+      url: /
+    - id: archives
+      theme: ''
+      title: 归档
+      icon: ''
+      url: /archives
+    - id: tags
+      theme: ''
+      title: 标签
+      icon: ''
+      url: /tags
+    - id: about
+      theme: ''
+      title: 关于
+      icon: ''
+      url: /about
 
 author:
   on: true
