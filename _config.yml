@@ -23,16 +23,6 @@ archive_generator:
   monthly: false
   daily: false
 
-menubar:
-  columns: 4
-  items: 
-    ...
-    - id: more
-      theme: ''
-      title: 更多
-      icon: ''
-      url: /more/
-
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://thfls.club
