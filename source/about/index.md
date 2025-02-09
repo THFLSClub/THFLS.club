@@ -61,7 +61,7 @@ E --> F{{全球CDN网络}}
 - **技术咨询**: <tech@thfls.club> (响应时间<24h)
 - **漏洞报告**: [安全响应中心](https://thfls.club/security)
 - **社交媒体**:
-  [![Telegram](https://icongr.am/fontawesome/telegrame.svg?size=16&color=1da1f2)](https://t.me/GZTHFLS)
+  [![Telegram](https://icongr.am/fontawesome/telegram.svg?size=16&color=1da1f2)](https://t.me/GZTHFLS)
   [![Github](https://icongr.am/fontawesome/github.svg?size=16&color=07c160)](https://github.com/THFLSClub)
 
 ---
