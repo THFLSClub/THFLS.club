@@ -9,8 +9,14 @@ description: '广州市天河外国语学校计算机社团'
 keywords: THFLS, Middle School, CS
 favicon: https://www.helloimg.com/i/2025/02/09/67a8497e3b221.jpg
 author: HydroGest
-language: zh-cn
+language: zh-CN
 timezone: ''
+
+author:
+  on: true #true：开启多作者模式
+  authors:
+    author1: HydroGest
+    author2: Pan Jingxi
 
 archive_generator:
   per_page: 0  
