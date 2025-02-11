@@ -6,11 +6,11 @@ menubar:
       title: 主页
       icon: ''
       url: /
-    - id: archives
+    - id: links
       theme: ''
-      title: 归档
+      title: 友链
       icon: ''
-      url: /archives
+      url: /links
     - id: tags
       theme: ''
       title: 标签
