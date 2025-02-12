@@ -24,8 +24,8 @@ menubar:
 
 footer:
   social:
-  rss:
-      icon: '<i class="fa-solid fa-rss fa-shake"></i>'
-      url: /atom.xml
+    rss:
+        icon: '<i class="fa-solid fa-rss fa-shake"></i>'
+        url: /atom.xml
       
 rss: /atom.xml
