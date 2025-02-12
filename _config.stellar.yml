@@ -21,3 +21,11 @@ menubar:
       title: 关于
       icon: ''
       url: /about
+
+footer:
+  social:
+  rss:
+      icon: '<i class="fa-solid fa-rss fa-shake"></i>'
+      url: /atom.xml
+      
+rss: /atom.xml
