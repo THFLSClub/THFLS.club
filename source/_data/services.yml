@@ -1,0 +1,23 @@
+- title: TWOSI 镜像站
+  url: https://mirror.thfls.club
+  cover:
+  icon:
+  description: 常用开源软件的 Release 镜像。
+- title: Github 文件下载加速
+  url: https://gh.thfls.club
+  cover:
+  icon:
+  description: 加速下载 Github 文件，支持 git clone。
+- title: 网络粘贴板
+  url: https://paste.thfls.club
+  cover:
+  icon:
+  description: 快速分享文本文件。
+- title: 短链接生成器
+  url: https://links.thfls.club
+  cover:
+  icon:
+  description: 把网址变短的魔法
+
+
+
