@@ -1,20 +1,21 @@
-- title: TW_Mirror
-  url: https://mirror.thfls.club
-  cover:
-  icon:
-  description: 开源镜像站
-- title: 天外 Github 加速下载
-  url: https://gh.thfls.club
-  cover:
-  icon:
-  description: 加速 Github 下载
-- title: 公益粘贴板
-  url: https://paste.thfls.club
-  cover:
-  icon:
-  description: 粘贴并分享文本
-- title: 短链接生成器
-  url: https://links.thfls.club
-  cover:
-  icon:
-  description: 缩短网址
+'services':
+  - title: TW_Mirror
+    url: https://mirror.thfls.club
+    cover:
+    icon:
+    description: 开源镜像站
+  - title: 天外 Github 加速下载
+    url: https://gh.thfls.club
+    cover:
+    icon:
+    description: 加速 Github 下载
+  - title: 公益粘贴板
+    url: https://paste.thfls.club
+    cover:
+    icon:
+    description: 粘贴并分享文本
+  - title: 短链接生成器
+    url: https://links.thfls.club
+    cover:
+    icon:
+    description: 缩短网址
