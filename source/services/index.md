@@ -5,4 +5,4 @@ title: 公益服务
 
 以下为天外计算机社提供的公共服务列表：
 
-{% sites services_data %}
+{% sites services %}
