@@ -11,11 +11,11 @@ menubar:
       title: 友链
       icon: ''
       url: /links
-    - id: tags
+    - id: services
       theme: ''
-      title: 标签
+      title: 服务
       icon: ''
-      url: /tags
+      url: /services
     - id: about
       theme: ''
       title: 关于
