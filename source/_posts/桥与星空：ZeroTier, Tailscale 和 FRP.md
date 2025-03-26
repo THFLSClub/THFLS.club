@@ -1,5 +1,5 @@
 ---
-title: CDN入门指南：CNAME、加速域名、源站地址与回源Host的协作密码
+title: 桥与星空：ZeroTier, Tailscale 和 FRP
 date: 2025-03-26 23:11:54
 author: HydroGest 
 tags:
