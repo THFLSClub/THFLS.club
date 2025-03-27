@@ -1,5 +1,5 @@
 ---
-title: AI 与 GPU：用你的显卡运行 AI 模型.md
+title: AI 与 GPU：用你的显卡运行 AI 模型
 date: 2025-03-28 00:43:54
 author: HydroGest 
 tags:
