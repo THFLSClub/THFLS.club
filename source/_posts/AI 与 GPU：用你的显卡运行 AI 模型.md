@@ -60,7 +60,7 @@ tags:
 
 2. 点击“Search more...”进入到检索界面，检索的信息中按照下图形式选中并点击下载即可：
 
-![](https://p.sda1.dev/23/9fe83e855a76a00d9a34a1844fde9997/78663732132b464b9eba165c6729b8ca _1_.png)
+![](https://p.sda1.dev/23/9fe83e855a76a00d9a34a1844fde9997/78663732132b464b9eba165c6729b8ca_1_.png)
 
 
 **Step 3：模型选型**
