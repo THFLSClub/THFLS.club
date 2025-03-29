@@ -105,6 +105,6 @@ Carpet AMS Addition 在 Fabric 环境中表现出严重的性能问题：
  
 单 Mod 占用 75% 进程 CPU Time，远超其他优化组件（如 Lithium 仅占 19%）
  
-直接导致 MSPT 飙升，安装后平均 MSPT 从 41.4ms 恶化至更高（具体数据未记录但您提到“更卡”）
+直接导致 MSPT 飙升，安装后平均 MSPT 从 41.4ms 恶化至更高
  
 资源消耗不成比例，其 CPU 占用率是第二名 Lithium 的 近 4 倍，但未带来可观测的 TPS 提升
