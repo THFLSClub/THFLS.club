@@ -1,7 +1,7 @@
 ---
 title: Legend VPS SGP Free TEST
 date: 2025-03-29 22:15:54
-author: JingxiPan
+author: panjingxi
 tags: 
   -网络
 ---
