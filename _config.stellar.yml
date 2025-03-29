@@ -25,7 +25,7 @@ menubar:
 footer:
   social:
     rss:
-      icon: 'https://rss.com/blog/wp-content/uploads/2019/10/social_style_3_rss-512-1.png'
+      icon: '<img src="https://rss.com/blog/wp-content/uploads/2019/10/social_style_3_rss-512-1.png"/>'
       url: /atom.xml
       
 rss: /atom.xml
