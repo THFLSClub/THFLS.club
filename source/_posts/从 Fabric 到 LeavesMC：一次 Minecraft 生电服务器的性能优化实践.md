@@ -90,14 +90,10 @@ tags:
 
 ### 附：Java启动参数  
 ```bash
-java -server -Xmx57344M -Xms57344M -XX:+UnlockExperimentalVMOptions -XX:+UseZGC \
--XX:ConcGCThreads=4 -XX:ParallelGCThreads=16 -XX:MaxGCPauseMillis=50 \
--XX:+AlwaysPreTouch -XX:+UseTransparentHugePages -jar leaves-1.21.4.jar nogui
+java -server -Xmx18344M -Xms18344M -XX:+UnlockExperimentalVMOptions -XX:+UnlockDiagnosticVMOptions -XX:+DisableExplicitGC -XX:-UseG1GC -XX:+UseZGC -XX:-ZUncommit -XX:ZAllocationSpikeTolerance=5 -XX:+UseTransparentHugePages -XX:LargePageSizeInBytes=2m -XX:ReservedCodeCacheSize=768M -XX:MaxMetaspaceSize=512M -XX:MaxInlineSize=512 -XX:+AlwaysPreTouch -XX:+OmitStackTraceInFastThrow -XX:+DoEscapeAnalysis -XX:+OptimizeStringConcat -XX:+EliminateLocks -XX:+SegmentedCodeCache -XX:+UseVectorCmov -XX:+UseCMoveUnconditionally -XX:+UseFastStosb -XX:MaxGCPauseMillis=50 -XX:ConcGCThreads=4 -XX:ParallelGCThreads=16 -jar leaves-1.21.4.jar nogui
 ```
 
 参数说明：
- 
- - `Xmx57344M` ：分配56GB内存（保留8GB给系统）
  
  - `XX:ParallelGCThreads=16`：匹配16核CPU
  
