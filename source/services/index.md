@@ -12,3 +12,5 @@ title: 公益服务
 {% link https://paste.thfls.club 公共粘贴板 %}
 
 {% link https://links.thfls.club 短链接生成器 %}
+
+{% link https://tool.thfls.club 开发人员和 IT 人员的工具箱 %}
