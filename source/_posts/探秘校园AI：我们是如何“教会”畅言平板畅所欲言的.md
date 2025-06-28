@@ -84,6 +84,6 @@ tags:
 
 因为真正的学习，往往发生在课本之外。
 
-![](https://p.sda1.dev/25/c604f1c10fe80f8f6e63363bf0dcff92/IMG_20250628_135633.jpg)
+![](https://image.dooo.ng/c/2025/06/28/685f879bf06c0.webp)
 
-![](https://p.sda1.dev/25/8362721129375f4c70b3017b9d97e153/IMG_20250628_135731.jpg)
+![](https://image.dooo.ng/c/2025/06/28/685f879bdea28.webp)
