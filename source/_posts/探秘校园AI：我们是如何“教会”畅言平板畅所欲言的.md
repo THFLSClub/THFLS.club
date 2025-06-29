@@ -1,6 +1,6 @@
 ---
 title: 探秘校园AI：我们是如何“教会”畅言平板畅所欲言的
-date: 2025-06-30 13:43:54
+date: 2025-06-28 13:43:54
 author: HydroGest 
 tags:
   - AI
