@@ -69,4 +69,4 @@ GitHub页面：https://github.com/gkd-kit/gkd
 
 下载链接：https://gkd.li/guide/
 
-推荐订阅：https://registry.npmmirror.com/@adpro/gkd_subscription/latest/files/dist/Adpro_gkd.json5（导入GKD内使用）
+推荐订阅（导入GKD内使用）：https://registry.npmmirror.com/@adpro/gkd_subscription/latest/files/dist/Adpro_gkd.json5
