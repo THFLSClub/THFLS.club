@@ -22,7 +22,7 @@ A[Markdown创作] --> B(Hexo静态生成)
 B --> C{Git版本控制}
 C --> D[GitHub仓库]
 D --> E[[Cloudflare Pages]]
-E --> F{{全球CDN网络}}
+E --> F{{腾讯Edgeone CDN}}
 ```
 
 **核心技术组件**：
