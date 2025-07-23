@@ -20,8 +20,6 @@ HKEY_CLASSES_ROOT\BaiduNetdiskImageViewerAssociationsHKEY_CURRENT_USER\Software\
 
 批量删除的脚本，直接复制到记事本中，另存为`remove_image_viewer.bat`（注意，请确保保存时的编码是“ANSI”或“GBK”“GB2312”），然后双击运行即可：
 
-[
- 复制代码](https://xzonn.top/posts/Remove-Intelligent-Image-Viewer.html#)
 
 ```
 @echo off
