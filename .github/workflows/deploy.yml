@@ -28,3 +28,16 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
+    
+    - run: npm ci
+    - run: npm run build --if-present
+
+    # 添加以下部署步骤
+    - name: Publish to Cloudflare Pages
+      if: github.ref == 'refs/heads/main' && matrix.node-version == '20.x'
+      uses: cloudflare/pages-action@v1
+      with:
+        apiToken: ${{ secrets.CF_API_TOKEN }}
+        accountId: ${{ secrets.CF_ACCOUNT_ID }}
+        projectName: thfls-club
+        directory: dist
