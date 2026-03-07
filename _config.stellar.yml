@@ -1,31 +1,58 @@
+inject:
+  head:
+    - <link rel="preconnect" href="https://fonts.googleapis.com">
+    - <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    - <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    - <link rel="stylesheet" href="/css/custom.css">
+  script:
+    - <script defer src="/js/thfls.js"></script>
+
+# ── 深色模式 ──────────────────────────────────────────────────
+darkmode: force
+
+# ── 导航栏 ────────────────────────────────────────────────────
 menubar:
   columns: 4
   items:
     - id: home
       theme: ''
       title: 主页
-      icon: ''
+      icon: 'ph:house-line-duotone'
       url: /
     - id: links
       theme: ''
       title: 友链
-      icon: ''
+      icon: 'ph:link-simple-duotone'
       url: /links
     - id: services
       theme: ''
       title: 服务
-      icon: ''
+      icon: 'ph:cloud-duotone'
       url: /services
     - id: about
       theme: ''
       title: 关于
-      icon: ''
+      icon: 'ph:info-duotone'
       url: /about
 
+# ── Footer ────────────────────────────────────────────────────
 footer:
+  content: |
+    <div class="thfls-footer-extra">
+      <a href="https://github.com/THFLSClub" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://t.me/GZTHFLS" target="_blank" rel="noopener">Telegram</a>
+      <a href="/atom.xml">RSS</a>
+      <a href="mailto:tech@thfls.club">tech@thfls.club</a>
+    </div>
   social:
+    github:
+      icon: 'ph:github-logo-duotone'
+      url: https://github.com/THFLSClub
+    telegram:
+      icon: 'ph:telegram-logo-duotone'
+      url: https://t.me/GZTHFLS
     rss:
-      icon: '<img src="https://p.sda1.dev/23/e0791e4a24490bf3d320a84e7549b07d/social_style_3_rss-512-1.png"/>'
+      icon: 'ph:rss-duotone'
       url: /atom.xml
-      
+
 rss: /atom.xml
