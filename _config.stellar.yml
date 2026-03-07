@@ -1,22 +1,20 @@
 # ================================================================
-#  天外计算机社 · _config.stellar.yml  v3
+#  天外计算机社 · _config.stellar.yml  v4
 # ================================================================
 
 inject:
   head:
-    # Fonts
+    # Preconnect for font performance
     - <link rel="preconnect" href="https://fonts.googleapis.com">
     - <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    - <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    # Iconify runtime (fixes ph:xxx icon text)
-    - <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
-    # Theme override — loaded first so it applies before Stellar's CSS
+    # Fonts: Syne (display EN), Noto Serif SC (CJK title), JetBrains Mono (terminal)
+    - <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&family=Syne:wght@700;800;900&family=Noto+Serif+SC:wght@700;900&display=swap" rel="stylesheet">
+    # Our design system
     - <link rel="stylesheet" href="/css/custom.css">
   script:
-    # thfls.js — NOT deferred so hero slot exists before paint
+    # Runs sync — must execute before first paint so body:not(.thfls-ready) hides jank
     - <script src="/js/thfls.js"></script>
 
-# Lock to dark — our palette is dark-only
 darkmode: force
 
 # ── NAV ──────────────────────────────────────────────────────
@@ -25,33 +23,20 @@ menubar:
   items:
     - id: home
       title: 主页
-      icon: ''
       url: /
     - id: links
       title: 友链
-      icon: ''
       url: /links
     - id: services
       title: 服务
-      icon: ''
       url: /services
     - id: about
       title: 关于
-      icon: ''
       url: /about
 
-# ── FOOTER ───────────────────────────────────────────────────
+# ── FOOTER (Stellar's own, hidden on homepage by our rebuild) ─
 footer:
-  content: |
-    <div class="thfls-footer-inner">
-      <span class="thfls-footer-brand">天外计算机社 · THFLS Computer Club · 2025</span>
-      <div class="thfls-footer-links">
-        <a href="https://github.com/THFLSClub" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://t.me/GZTHFLS" target="_blank" rel="noopener">Telegram</a>
-        <a href="/atom.xml">RSS</a>
-        <a href="mailto:tech@thfls.club">邮件</a>
-      </div>
-    </div>
+  content: ''
   social:
     github:
       icon: ''
