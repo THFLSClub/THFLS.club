@@ -1,125 +1,164 @@
 /**
- * 天外计算机社 · THFLS.club
- * Custom JS — Hero Injection + Scroll Progress
+ * 天外计算机社 · thfls.js  v2.0
+ * – Scroll progress bar (CSS var)
+ * – Hero section injection (homepage only)
+ * – Phosphor icon fallback cleanup
+ * – Smooth card fade-in on scroll
  */
-
 (function () {
   'use strict';
 
-  /* ── SCROLL PROGRESS BAR ──────────────────────────────── */
-  function updateScrollProgress() {
-    var scrolled = window.scrollY;
-    var total = document.documentElement.scrollHeight - window.innerHeight;
-    var pct = total > 0 ? (scrolled / total) * 100 : 0;
-    document.documentElement.style.setProperty('--scroll-progress', pct.toFixed(2) + '%');
+  /* ─── 1. SCROLL PROGRESS ─────────────────────────────────── */
+  var root = document.documentElement;
+  function updateProgress() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? ((window.scrollY / h) * 100).toFixed(2) + '%' : '0%';
+    root.style.setProperty('--sp', pct);
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  /* ─── 2. FORCE DARK MODE ─────────────────────────────────── */
+  function forceDark() {
+    root.setAttribute('data-theme', 'dark');
+    root.style.colorScheme = 'dark';
+  }
+  forceDark();
+  new MutationObserver(function (muts) {
+    muts.forEach(function () {
+      if (root.getAttribute('data-theme') !== 'dark') forceDark();
+    });
+  }).observe(root, { attributes: true, attributeFilter: ['data-theme', 'class'] });
+
+  /* ─── 3. ICON TEXT CLEANUP ───────────────────────────────── */
+  // If Iconify hasn't loaded, sidebar icon text like "ph:house-line-duotone"
+  // will render as raw text. Hide those spans.
+  function cleanBrokenIcons() {
+    var icons = document.querySelectorAll('[class*="icon"]:not(svg):not(img):not(iconify-icon)');
+    icons.forEach(function (el) {
+      var txt = (el.textContent || '').trim();
+      // Matches patterns like "ph:something" or "mdi:something"
+      if (/^[a-z]+:[a-z0-9\-]+$/.test(txt)) {
+        el.style.display = 'none';
+      }
+    });
+
+    // Also catch text nodes directly inside menu links
+    var menuLinks = document.querySelectorAll('.menu-links a, .menubar a, nav.menu a');
+    menuLinks.forEach(function (link) {
+      link.childNodes.forEach(function (node) {
+        if (node.nodeType === 3) { // TEXT_NODE
+          var t = node.textContent.trim();
+          if (/^[a-z]+:[a-z0-9\-]+$/.test(t)) {
+            node.textContent = '';
+          }
+        }
+      });
+    });
   }
 
-  window.addEventListener('scroll', updateScrollProgress, { passive: true });
-  updateScrollProgress();
+  /* ─── 4. HERO INJECTION (homepage only) ─────────────────── */
+  function isHomePage() {
+    var p = window.location.pathname;
+    return p === '/' || p === '/index.html' || /^\/page\/\d+\/?$/.test(p);
+  }
 
-  /* ── INJECT HERO SECTION ──────────────────────────────── */
   function injectHero() {
-    // Only inject on homepage (no path or /)
-    var path = window.location.pathname;
-    var isHome = path === '/' || path === '/index.html' || /^\/page\/\d+\/?$/.test(path);
-    if (!isHome) return;
+    if (!isHomePage()) return;
 
-    // Find insertion point — before the main content wrapper
-    var targets = [
-      document.querySelector('#main'),
-      document.querySelector('main'),
-      document.querySelector('.main'),
-      document.querySelector('#body-wrap'),
-      document.querySelector('.wrapper'),
-    ].filter(Boolean);
+    // Find the best insertion target — before the main content
+    var target =
+      document.querySelector('#main') ||
+      document.querySelector('main') ||
+      document.querySelector('.main') ||
+      document.querySelector('.l_body') ||
+      document.querySelector('#body-wrap');
 
-    if (!targets.length) return;
-    var insertBefore = targets[0];
+    if (!target || document.querySelector('.thfls-hero')) return;
 
     var hero = document.createElement('section');
     hero.className = 'thfls-hero';
-    hero.innerHTML = [
-      '<div class="thfls-hero-grid"></div>',
-      '<div class="thfls-hero-glow"></div>',
-      '<div class="thfls-hero-inner">',
-        '<div class="thfls-hero-tag">广州市天河外国语学校 · 计算机社团</div>',
-        '<h1 class="thfls-hero-title">天外计算机社</h1>',
-        '<div class="thfls-hero-subtitle">THFLS.CLUB</div>',
-        '<div class="thfls-hero-desc">',
-          '<span class="prompt">$ </span>cat README.md<br>',
-          '一个有温度的 Geek Paradise。<br>',
-          '从网络工程到 AI 模型，从 Android 底层到开源协作——<br>',
-          '这里是我们构建、探索与分享的数字基地。<span class="thfls-cursor"></span>',
-        '</div>',
-        '<div class="thfls-hero-stats">',
-          '<div class="thfls-stat"><span class="thfls-stat-num">20+</span><span class="thfls-stat-label">技术文章</span></div>',
-          '<div class="thfls-stat"><span class="thfls-stat-num">5</span><span class="thfls-stat-label">公益服务</span></div>',
-          '<div class="thfls-stat"><span class="thfls-stat-num">2025</span><span class="thfls-stat-label">成立于</span></div>',
-          '<div class="thfls-stat"><span class="thfls-stat-num">∞</span><span class="thfls-stat-label">探索精神</span></div>',
-        '</div>',
-      '</div>',
-    ].join('');
+    hero.setAttribute('aria-label', '天外计算机社 Hero');
 
-    insertBefore.parentNode.insertBefore(hero, insertBefore);
+    // Get article/post count from sidebar widget if available
+    var postCount = document.querySelectorAll('.widget li a, .recent-post-item').length || 20;
 
-    // Add section bar before post list
-    var postList = document.querySelector('.post-list, .article-list, #post-list, .posts-wrap');
-    if (postList) {
+    hero.innerHTML =
+      '<div class="thfls-hero-grid"></div>' +
+      '<div class="thfls-hero-glow"></div>' +
+      '<div class="thfls-hero-inner">' +
+        '<div class="thfls-tag">' +
+          '<span class="thfls-tag-dot"></span>' +
+          '广州市天河外国语学校&nbsp;&nbsp;·&nbsp;&nbsp;计算机社团' +
+        '</div>' +
+        '<h1 class="thfls-h1">天外计算机社</h1>' +
+        '<div class="thfls-h2">THFLS.CLUB</div>' +
+        '<div class="thfls-desc">' +
+          '<span class="prompt">$ </span>cat README.md<br>' +
+          '一个有温度的 Geek Paradise。<br>' +
+          '从网络工程到 AI 模型，从 Android 底层到开源协作——<br>' +
+          '这里是我们构建、探索与分享的数字基地。' +
+          '<span class="thfls-cursor"></span>' +
+        '</div>' +
+        '<div class="thfls-stats">' +
+          '<div class="thfls-stat"><span class="thfls-stat-n">20+</span><span class="thfls-stat-l">技术文章</span></div>' +
+          '<div class="thfls-stat"><span class="thfls-stat-n">5</span><span class="thfls-stat-l">公益服务</span></div>' +
+          '<div class="thfls-stat"><span class="thfls-stat-n">2025</span><span class="thfls-stat-l">成立于</span></div>' +
+          '<div class="thfls-stat"><span class="thfls-stat-n">∞</span><span class="thfls-stat-l">探索精神</span></div>' +
+        '</div>' +
+      '</div>';
+
+    target.parentNode.insertBefore(hero, target);
+
+    // Inject section label before post list
+    var postArea =
+      document.querySelector('.l_r_aside') ||
+      document.querySelector('.post-list') ||
+      document.querySelector('.article-list') ||
+      document.querySelector('.posts-wrap') ||
+      document.querySelector('[id*="post"]');
+
+    if (postArea) {
       var bar = document.createElement('div');
       bar.className = 'thfls-section-bar';
-      bar.innerHTML = [
-        '<span class="thfls-section-index">01</span>',
-        '<span class="thfls-section-title">最新文章</span>',
-        '<div class="thfls-section-line"></div>',
-      ].join('');
-      postList.parentNode.insertBefore(bar, postList);
+      bar.innerHTML =
+        '<span class="thfls-section-idx">// 最新</span>' +
+        '<span class="thfls-section-ttl">近期发布</span>' +
+        '<div class="thfls-section-line"></div>';
+      postArea.parentNode.insertBefore(bar, postArea);
     }
   }
 
-  /* ── ANIMATE CARDS ON SCROLL ──────────────────────────── */
-  function initCardAnimations() {
+  /* ─── 5. CARD FADE-IN ON SCROLL ─────────────────────────── */
+  function initCardAnim() {
     if (!window.IntersectionObserver) return;
-
-    var cards = document.querySelectorAll('.post-card, .post-item, .article-card, .widget');
-    var idx = 0;
-
+    var delay = 0;
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.style.animation = 'thfls-fadeUp 0.45s ease ' + (idx * 0.04) + 's both';
-          entry.target.style.opacity = '0';
-          idx++;
-          obs.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        el.style.opacity = '0';
+        el.style.animation = 'thfls-up .42s ease ' + (delay * 0.06) + 's both';
+        delay = (delay + 1) % 8;
+        obs.unobserve(el);
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.08 });
 
-    cards.forEach(function (card) {
-      obs.observe(card);
-    });
+    var cards = document.querySelectorAll(
+      '.post-card, .article-card, .note, .l_post, .widget, .timeline-item'
+    );
+    cards.forEach(function (c) { obs.observe(c); });
   }
 
-  /* ── STYLE THEME TOGGLE (force dark) ─────────────────── */
-  function forceDark() {
-    // Remove any light theme classes Stellar might set
-    document.documentElement.removeAttribute('data-theme');
-    document.documentElement.setAttribute('data-theme', 'dark');
-    // Also set color-scheme
-    document.documentElement.style.colorScheme = 'dark';
-  }
-
-  /* ── INIT ─────────────────────────────────────────────── */
+  /* ─── INIT ───────────────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
     forceDark();
+    cleanBrokenIcons();
     injectHero();
-    initCardAnimations();
+    initCardAnim();
 
-    // Watch for Stellar's theme toggle and keep dark
-    var observer = new MutationObserver(function () {
-      var theme = document.documentElement.getAttribute('data-theme');
-      if (theme !== 'dark') forceDark();
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'class'] });
+    // Re-run icon cleanup after a short delay in case Stellar renders late
+    setTimeout(cleanBrokenIcons, 800);
   });
 
 })();
