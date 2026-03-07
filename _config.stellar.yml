@@ -1,58 +1,70 @@
+# ============================================================
+#  天外计算机社 · _config.stellar.yml
+#  Stellar v1.29.x · Fixed & Refined
+# ============================================================
+
 inject:
   head:
+    # Fonts
     - <link rel="preconnect" href="https://fonts.googleapis.com">
     - <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     - <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    # Iconify — fixes ph:xxx icon rendering
+    - <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    # Custom theme
     - <link rel="stylesheet" href="/css/custom.css">
   script:
     - <script defer src="/js/thfls.js"></script>
 
-# ── 深色模式 ──────────────────────────────────────────────────
+# Lock dark mode — our aesthetic requires it
 darkmode: force
 
-# ── 导航栏 ────────────────────────────────────────────────────
+# ── NAV ─────────────────────────────────────────────────────
 menubar:
   columns: 4
   items:
     - id: home
       theme: ''
       title: 主页
-      icon: 'ph:house-line-duotone'
+      icon: ''
       url: /
     - id: links
       theme: ''
       title: 友链
-      icon: 'ph:link-simple-duotone'
+      icon: ''
       url: /links
     - id: services
       theme: ''
       title: 服务
-      icon: 'ph:cloud-duotone'
+      icon: ''
       url: /services
     - id: about
       theme: ''
       title: 关于
-      icon: 'ph:info-duotone'
+      icon: ''
       url: /about
 
-# ── Footer ────────────────────────────────────────────────────
+# ── FOOTER ──────────────────────────────────────────────────
 footer:
   content: |
-    <div class="thfls-footer-extra">
-      <a href="https://github.com/THFLSClub" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://t.me/GZTHFLS" target="_blank" rel="noopener">Telegram</a>
-      <a href="/atom.xml">RSS</a>
-      <a href="mailto:tech@thfls.club">tech@thfls.club</a>
+    <div class="thfls-footer-inner">
+      <span class="thfls-footer-brand">天外计算机社 · THFLS Computer Club · 2025</span>
+      <div class="thfls-footer-links">
+        <a href="https://github.com/THFLSClub" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://t.me/GZTHFLS" target="_blank" rel="noopener">Telegram</a>
+        <a href="/atom.xml">RSS</a>
+        <a href="mailto:tech@thfls.club">邮件</a>
+      </div>
     </div>
   social:
     github:
-      icon: 'ph:github-logo-duotone'
+      icon: ''
       url: https://github.com/THFLSClub
     telegram:
-      icon: 'ph:telegram-logo-duotone'
+      icon: ''
       url: https://t.me/GZTHFLS
     rss:
-      icon: 'ph:rss-duotone'
+      icon: ''
       url: /atom.xml
 
 rss: /atom.xml
