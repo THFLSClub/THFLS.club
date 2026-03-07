@@ -1,7 +1,6 @@
-# ============================================================
-#  天外计算机社 · _config.stellar.yml
-#  Stellar v1.29.x · Fixed & Refined
-# ============================================================
+# ================================================================
+#  天外计算机社 · _config.stellar.yml  v3
+# ================================================================
 
 inject:
   head:
@@ -9,42 +8,39 @@ inject:
     - <link rel="preconnect" href="https://fonts.googleapis.com">
     - <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     - <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    # Iconify — fixes ph:xxx icon rendering
+    # Iconify runtime (fixes ph:xxx icon text)
     - <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
-    # Custom theme
+    # Theme override — loaded first so it applies before Stellar's CSS
     - <link rel="stylesheet" href="/css/custom.css">
   script:
-    - <script defer src="/js/thfls.js"></script>
+    # thfls.js — NOT deferred so hero slot exists before paint
+    - <script src="/js/thfls.js"></script>
 
-# Lock dark mode — our aesthetic requires it
+# Lock to dark — our palette is dark-only
 darkmode: force
 
-# ── NAV ─────────────────────────────────────────────────────
+# ── NAV ──────────────────────────────────────────────────────
 menubar:
   columns: 4
   items:
     - id: home
-      theme: ''
       title: 主页
       icon: ''
       url: /
     - id: links
-      theme: ''
       title: 友链
       icon: ''
       url: /links
     - id: services
-      theme: ''
       title: 服务
       icon: ''
       url: /services
     - id: about
-      theme: ''
       title: 关于
       icon: ''
       url: /about
 
-# ── FOOTER ──────────────────────────────────────────────────
+# ── FOOTER ───────────────────────────────────────────────────
 footer:
   content: |
     <div class="thfls-footer-inner">
